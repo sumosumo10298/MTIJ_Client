@@ -123,8 +123,8 @@ $("#btntemp").click(function(event) {
         xhr.send(data)
         xhr.addEventListener("readystatechange", function() {
             if (this.readyState == 4) {
+                let tempregist = JSON.parse(this.responseText);
                 if (this.status === 200) {
-                    let tempregist = JSON.parse(this.responseText);
                     let encode = base64encode(tempregist.temporaryId + "01012020");
                     let sendmail = `
                 {
@@ -137,8 +137,7 @@ $("#btntemp").click(function(event) {
                     xhr.send(sendmail);
                     window.location = "/notifiCheckmail.html"
                 } else {
-                    let temp = JSON.parse(this.responseText);
-                    alert(temp.error.message)
+                    alert(tempregist.error.message)
                 }
             }
         });

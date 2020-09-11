@@ -23,8 +23,8 @@ $(document).ready(function() {
                     if (this.status === 200) {
                         alert("You have successfully login!")
                     } else {
-                        let temp = JSON.parse(this.responseText);
-                        alert(temp.error.message)
+                        let login = JSON.parse(this.responseText);
+                        alert(login.error.message)
                     }
                 }
             });

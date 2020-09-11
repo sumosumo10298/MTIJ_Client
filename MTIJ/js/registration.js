@@ -144,8 +144,8 @@ $(document).ready(function() {
                         alert("You have successfully registered!")
                         window.location = "/login.html"
                     } else {
-                        let temp = JSON.parse(this.responseText);
-                        alert(temp.error.message)
+                        let regist = JSON.parse(this.responseText);
+                        alert(regist.error.message)
                     }
                 }
             });
