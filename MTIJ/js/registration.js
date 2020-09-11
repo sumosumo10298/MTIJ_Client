@@ -142,6 +142,9 @@ $(document).ready(function() {
                 if (this.readyState == 4 && this.status === 200) {
                     alert("You have successfully registered!")
                     window.location = "/login.html"
+                } else {
+                    let temp = JSON.parse(this.responseText);
+                    alert(temp.error.message)
                 }
             });
         }

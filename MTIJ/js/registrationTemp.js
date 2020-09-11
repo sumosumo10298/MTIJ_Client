@@ -95,9 +95,8 @@ function base64encode(str) {
     return Base64.encode(str);
 }
 
-$("#btntemp").click(function(e) {
-    e.preventDefault();
-
+$("#btntemp").click(function(event) {
+    event.preventDefault();
     var creditNo = $("#creditNo").val();
     var kanaName = $("#kanaName").val();
     var birthday = $("#datepicker").val();
@@ -118,9 +117,10 @@ $("#btntemp").click(function(e) {
                 \n        \"mailaddress\":\"${mailaddress}\"
                 \n    }
             `;
+        console.log(data)
         xhr.open("POST", "http://localhost:44396/members/tempregist");
         xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(data);
+        xhr.send(data)
         xhr.addEventListener("readystatechange", function() {
             if (this.readyState == 4 && this.status === 200) {
                 let tempregist = JSON.parse(this.responseText);
@@ -135,8 +135,10 @@ $("#btntemp").click(function(e) {
                 xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.send(sendmail);
                 window.location = "/notifiCheckmail.html"
+            } else {
+                let temp = JSON.parse(this.responseText);
+                alert(temp.error.message)
             }
         });
     }
-
 });

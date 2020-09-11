@@ -21,6 +21,9 @@ $(document).ready(function() {
             xhr.addEventListener("readystatechange", function() {
                 if (this.readyState == 4 && this.status === 200) {
                     alert("You have successfully login!")
+                } else {
+                    let temp = JSON.parse(this.responseText);
+                    alert(temp.error.message)
                 }
             });
         }
