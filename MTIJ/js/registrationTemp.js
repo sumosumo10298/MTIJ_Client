@@ -122,22 +122,24 @@ $("#btntemp").click(function(event) {
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(data)
         xhr.addEventListener("readystatechange", function() {
-            if (this.readyState == 4 && this.status === 200) {
-                let tempregist = JSON.parse(this.responseText);
-                let encode = base64encode(tempregist.temporaryId + "01012020");
-                let sendmail = `
+            if (this.readyState == 4) {
+                if (this.status === 200) {
+                    let tempregist = JSON.parse(this.responseText);
+                    let encode = base64encode(tempregist.temporaryId + "01012020");
+                    let sendmail = `
                 {
                     \n        \"mailaddress\": \"${mailaddress}\",
                     \n        \"encode\":\"${encode}\"
                     \n    }
                 `;
-                xhr.open("POST", "http://localhost:9798/Home/sendmail");
-                xhr.setRequestHeader("Content-Type", "application/json");
-                xhr.send(sendmail);
-                window.location = "/notifiCheckmail.html"
-            } else {
-                let temp = JSON.parse(this.responseText);
-                alert(temp.error.message)
+                    xhr.open("POST", "http://localhost:9798/Home/sendmail");
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.send(sendmail);
+                    window.location = "/notifiCheckmail.html"
+                } else {
+                    let temp = JSON.parse(this.responseText);
+                    alert(temp.error.message)
+                }
             }
         });
     }

@@ -19,11 +19,13 @@ $(document).ready(function() {
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(data);
             xhr.addEventListener("readystatechange", function() {
-                if (this.readyState == 4 && this.status === 200) {
-                    alert("You have successfully login!")
-                } else {
-                    let temp = JSON.parse(this.responseText);
-                    alert(temp.error.message)
+                if (this.readyState == 4) {
+                    if (this.status === 200) {
+                        alert("You have successfully login!")
+                    } else {
+                        let temp = JSON.parse(this.responseText);
+                        alert(temp.error.message)
+                    }
                 }
             });
         }
