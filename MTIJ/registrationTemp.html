@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Temporary Registration</h2>
+        <form>
+            <div class="form-group">
+                <label for="creditNo">Credit No:</label>
+                <input type="text" class="form-control" id="creditNo" placeholder="Enter Credit No" name="creditNo">
+            </div>
+            <div class="form-group">
+                <label for="kanaName">Kana Name:</label>
+                <input type="text" class="form-control" id="kanaName" placeholder="Enter Kana Name" name="kanaName">
+            </div>
+            <div class="form-group">
+                <label for="birthday">Birthday:</label>
+                <input id="datepicker" width="276" />
+            </div>
+            <div class="form-group">
+                <label for="mailaddress">Mail Address:</label>
+                <input type="text" class="form-control" id="mailaddress" placeholder="Enter Mail Address" name="mailaddress">
+            </div>
+            <button type="button" id="btntemp" class="btn btn-primary">Sign up</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/registrationTemp.js"></script>
+    <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+</body>
+
+</html>
